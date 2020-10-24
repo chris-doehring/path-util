@@ -10,7 +10,7 @@ File Path Utility
 
 Latest release: [2.3.0](https://packagist.org/packages/webmozart/path-util#2.3.0)
 
-PHP >= 5.4
+PHP >= 5.5
 
 This package provides robust, cross-platform utility functions for normalizing,
 comparing and modifying file paths and URLs.
