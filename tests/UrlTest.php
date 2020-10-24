@@ -11,6 +11,7 @@
 
 namespace Webmozart\PathUtil\Tests;
 
+use PHPUnit\Framework\TestCase;
 use Webmozart\PathUtil\Url;
 
 /**
@@ -19,7 +20,7 @@ use Webmozart\PathUtil\Url;
  * @author Bernhard Schussek <bschussek@gmail.com>
  * @author Claudio Zizza <claudio@budgegeria.de>
  */
-class UrlTest extends \PHPUnit_Framework_TestCase
+class UrlTest extends TestCase
 {
     /**
      * @dataProvider provideMakeRelativeTests
@@ -60,63 +61,62 @@ class UrlTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The URL must be a string. Got: array
      * @covers Webmozart\PathUtil\Url
      */
     public function testMakeRelativeFailsIfInvalidUrl()
     {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('The URL must be a string. Got: array');
         Url::makeRelative(array(), 'http://example.com/webmozart/puli');
     }
 
     /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The base URL must be a string. Got: array
      * @covers Webmozart\PathUtil\Url
      */
     public function testMakeRelativeFailsIfInvalidBaseUrl()
     {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('The base URL must be a string. Got: array');
         Url::makeRelative('http://example.com/webmozart/puli/css/style.css', array());
     }
 
     /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage "webmozart/puli" is not an absolute Url.
      * @covers Webmozart\PathUtil\Url
      */
     public function testMakeRelativeFailsIfBaseUrlNoUrl()
     {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('"webmozart/puli" is not an absolute Url.');
         Url::makeRelative('http://example.com/webmozart/puli/css/style.css', 'webmozart/puli');
     }
 
     /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage "" is not an absolute Url.
      * @covers Webmozart\PathUtil\Url
      */
     public function testMakeRelativeFailsIfBaseUrlEmpty()
     {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('"" is not an absolute Url.');
         Url::makeRelative('http://example.com/webmozart/puli/css/style.css', '');
     }
 
     /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The base URL must be a string. Got: NULL
      * @covers Webmozart\PathUtil\Url
      */
     public function testMakeRelativeFailsIfBaseUrlNull()
     {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('The base URL must be a string. Got: NULL');
         Url::makeRelative('http://example.com/webmozart/puli/css/style.css', null);
     }
 
     /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The URL "http://example.com" cannot be made relative to "http://example2.com" since
-     *                           their host names are different.
      * @covers Webmozart\PathUtil\Url
      */
     public function testMakeRelativeFailsIfDifferentDomains()
     {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('The URL "http://example.com" cannot be made relative to "http://example2.com" since their host names are different.');
         Url::makeRelative('http://example.com/webmozart/puli/css/style.css', 'http://example2.com/webmozart/puli');
     }
 

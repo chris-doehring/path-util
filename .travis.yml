@@ -6,8 +6,6 @@ cache:
 
 matrix:
   include:
-    - php: 5.3
-      dist: precise
     - php: 5.4
       dist: trusty
     - php: 5.5
@@ -34,6 +32,6 @@ before_install:
 
 install: travis_retry composer update $COMPOSER_FLAGS --prefer-dist --no-interaction
 
-script: if [[ $COVERAGE = yes ]]; then vendor/bin/phpunit --verbose --coverage-clover=coverage.clover; else vendor/bin/phpunit --verbose; fi
+script: if [[ $COVERAGE = yes ]]; then vendor/bin/simple-phpunit --verbose --coverage-clover=coverage.clover; else vendor/bin/simple-phpunit --verbose; fi
 
 after_script: if [[ $COVERAGE = yes ]]; then wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi

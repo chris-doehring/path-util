@@ -31,4 +31,4 @@ install:
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%
-  - vendor\bin\phpunit.bat --verbose
+  - vendor\bin\simple-phpunit.bat --verbose
