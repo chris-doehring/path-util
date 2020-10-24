@@ -9,11 +9,11 @@
         }
     ],
     "require": {
-        "php": "^5.5|^7.0|^8.0",
+        "php": "^5.4|^7.0|^8.0",
         "webmozart/assert": "~1.0"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^5.1",
+        "symfony/phpunit-bridge": "^4.1|^5.1",
         "sebastian/version": "^1.0.1"
     },
     "autoload": {
