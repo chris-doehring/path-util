@@ -13,7 +13,7 @@
         "webmozart/assert": "~1.0"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^5.1",
+        "symfony/phpunit-bridge": "^3.4|^5.1",
         "sebastian/version": "^1.0.1"
     },
     "autoload": {
