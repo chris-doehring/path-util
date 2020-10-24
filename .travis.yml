@@ -17,7 +17,6 @@ matrix:
         - COVERAGE=yes
         - ANALYSIS=yes
     - php: 7.4
-    - php: hhvm-3.30
     - php: 8.0snapshot
   fast_finish: true
 
